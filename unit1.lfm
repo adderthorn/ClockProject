@@ -1,0 +1,148 @@
+object Form1: TForm1
+  Left = 737
+  Height = 434
+  Top = 130
+  Width = 557
+  Caption = 'Form1'
+  ClientHeight = 434
+  ClientWidth = 557
+  Color = clBlack
+  OnCreate = FormCreate
+  LCLVersion = '3.6.0.0'
+  object StaticTextWeekday: TStaticText
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = Owner
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Left = 0
+    Height = 76
+    Top = 0
+    Width = 557
+    Alignment = taCenter
+    Anchors = [akTop, akLeft, akRight]
+    AutoSize = True
+    Caption = 'MONDAY'
+    Color = clDefault
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clWhite
+    Font.Height = -64
+    Font.Name = '.SF NS'
+    ParentFont = False
+    ParentColor = False
+    TabOrder = 0
+  end
+  object StaticTextArea: TStaticText
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = StaticTextWeekday
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Left = 0
+    Height = 28
+    Top = 76
+    Width = 557
+    Alignment = taCenter
+    Anchors = [akTop, akLeft, akRight]
+    AutoSize = True
+    Caption = 'MORNING'
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clWhite
+    Font.Height = -24
+    Font.Name = '.SF NS'
+    ParentFont = False
+    TabOrder = 1
+  end
+  object PanelTime: TPanel
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = StaticTextArea
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Left = 0
+    Height = 160
+    Top = 104
+    Width = 557
+    Anchors = [akTop, akLeft, akRight]
+    BevelOuter = bvNone
+    ClientHeight = 160
+    ClientWidth = 557
+    ParentBackground = False
+    TabOrder = 2
+    object StaticTextAMPM: TStaticText
+      AnchorSideLeft.Control = StaticTextTime
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = StaticTextTime
+      AnchorSideTop.Side = asrCenter
+      AnchorSideRight.Control = Owner
+      AnchorSideRight.Side = asrBottom
+      AnchorSideBottom.Control = StaticTextTime
+      AnchorSideBottom.Side = asrBottom
+      Left = 410
+      Height = 76
+      Top = 84
+      Width = 104
+      Anchors = [akLeft, akBottom]
+      AutoSize = True
+      Caption = 'AM'
+      Font.CharSet = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -64
+      Font.Name = '.SF NS'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 0
+    end
+    object StaticTextTime: TStaticText
+      AnchorSideLeft.Control = PanelTime
+      AnchorSideLeft.Side = asrCenter
+      AnchorSideTop.Control = PanelTime
+      AnchorSideRight.Control = Owner
+      AnchorSideBottom.Control = PanelTime
+      AnchorSideBottom.Side = asrBottom
+      Left = 146
+      Height = 113
+      Top = 47
+      Width = 264
+      Alignment = taCenter
+      Anchors = [akLeft, akBottom]
+      AutoSize = True
+      Caption = '10:30'
+      Font.CharSet = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -96
+      Font.Name = '.SF NS'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 1
+    end
+  end
+  object StaticTextMonthDayYear: TStaticText
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = PanelTime
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Left = 0
+    Height = 76
+    Top = 264
+    Width = 557
+    Alignment = taCenter
+    Anchors = [akTop, akLeft, akRight]
+    AutoSize = True
+    Caption = 'MARCH 1, 2025'
+    Color = clDefault
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clWhite
+    Font.Height = -64
+    Font.Name = '.SF NS'
+    ParentFont = False
+    ParentColor = False
+    TabOrder = 3
+  end
+  object Timer1: TTimer
+    Interval = 15000
+    OnTimer = Timer1Timer
+    Left = 8
+    Top = 8
+  end
+end
