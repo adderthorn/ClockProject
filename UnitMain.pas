@@ -95,7 +95,7 @@ begin
   StaticTextArea.Font.Size:=Round(NewSize / 2);
   NewTimeSize:=Round(Self.Width / kHugeMultiplier);
   StaticTextTime.Font.Size:=NewTimeSize;
-  StaticTextAMPM.Font.Size:=Round(NewTimeSize * 0.333333);
+  StaticTextAMPM.Font.Size:=Round(NewTimeSize / 3);
   StaticTextMonthDayYear.Font.Size:=Round(Self.Width / kSmallMultiplier);
 end;
 
