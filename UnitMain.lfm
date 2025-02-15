@@ -1,13 +1,15 @@
-object Form1: TForm1
-  Left = 737
-  Height = 434
-  Top = 130
-  Width = 557
-  Caption = 'Form1'
-  ClientHeight = 434
-  ClientWidth = 557
+object FormMain: TFormMain
+  Left = 2379
+  Height = 494
+  Top = 673
+  Width = 676
+  Caption = 'FormMain'
+  ClientHeight = 494
+  ClientWidth = 676
   Color = clBlack
   OnCreate = FormCreate
+  OnResize = FormResize
+  SessionProperties = 'Color;StaticTextAMPM.Color;StaticTextArea.Color;StaticTextMonthDayYear.Color;StaticTextTime.Color;StaticTextWeekday.Color'
   LCLVersion = '3.6.0.0'
   object StaticTextWeekday: TStaticText
     AnchorSideLeft.Control = Owner
@@ -15,9 +17,9 @@ object Form1: TForm1
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     Left = 0
-    Height = 76
+    Height = 73
     Top = 0
-    Width = 557
+    Width = 676
     Alignment = taCenter
     Anchors = [akTop, akLeft, akRight]
     AutoSize = True
@@ -39,8 +41,8 @@ object Form1: TForm1
     AnchorSideRight.Side = asrBottom
     Left = 0
     Height = 28
-    Top = 76
-    Width = 557
+    Top = 73
+    Width = 676
     Alignment = taCenter
     Anchors = [akTop, akLeft, akRight]
     AutoSize = True
@@ -58,14 +60,15 @@ object Form1: TForm1
     AnchorSideTop.Side = asrBottom
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = StaticTextMonthDayYear
     Left = 0
-    Height = 160
-    Top = 104
-    Width = 557
-    Anchors = [akTop, akLeft, akRight]
+    Height = 320
+    Top = 101
+    Width = 676
+    Anchors = [akTop, akLeft, akRight, akBottom]
     BevelOuter = bvNone
-    ClientHeight = 160
-    ClientWidth = 557
+    ClientHeight = 320
+    ClientWidth = 676
     ParentBackground = False
     TabOrder = 2
     object StaticTextAMPM: TStaticText
@@ -77,17 +80,20 @@ object Form1: TForm1
       AnchorSideRight.Side = asrBottom
       AnchorSideBottom.Control = StaticTextTime
       AnchorSideBottom.Side = asrBottom
-      Left = 410
-      Height = 76
-      Top = 84
-      Width = 104
+      Left = 465
+      Height = 81
+      Top = 122
+      Width = 64
       Anchors = [akLeft, akBottom]
       AutoSize = True
+      BorderSpacing.Left = 7
       Caption = 'AM'
       Font.CharSet = ANSI_CHARSET
       Font.Color = clWhite
       Font.Height = -64
-      Font.Name = '.SF NS'
+      Font.Name = 'Iosevka'
+      Font.Pitch = fpFixed
+      Font.Quality = fqDraft
       Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 0
@@ -99,21 +105,24 @@ object Form1: TForm1
       AnchorSideRight.Control = Owner
       AnchorSideBottom.Control = PanelTime
       AnchorSideBottom.Side = asrBottom
-      Left = 146
-      Height = 113
-      Top = 47
-      Width = 264
+      Left = 218
+      Height = 121
+      Top = 82
+      Width = 240
       Alignment = taCenter
-      Anchors = [akLeft, akBottom]
+      Anchors = [akLeft]
       AutoSize = True
       Caption = '10:30'
       Font.CharSet = ANSI_CHARSET
       Font.Color = clWhite
       Font.Height = -96
-      Font.Name = '.SF NS'
+      Font.Name = 'Iosevka'
+      Font.Pitch = fpFixed
+      Font.Quality = fqDraft
       Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 1
+      OnDblClick = StaticTextTimeDblClick
     end
   end
   object StaticTextMonthDayYear: TStaticText
@@ -122,12 +131,14 @@ object Form1: TForm1
     AnchorSideTop.Side = asrBottom
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
     Left = 0
-    Height = 76
-    Top = 264
-    Width = 557
+    Height = 73
+    Top = 421
+    Width = 676
     Alignment = taCenter
-    Anchors = [akTop, akLeft, akRight]
+    Anchors = [akLeft, akRight, akBottom]
     AutoSize = True
     Caption = 'MARCH 1, 2025'
     Color = clDefault
@@ -140,9 +151,13 @@ object Form1: TForm1
     TabOrder = 3
   end
   object Timer1: TTimer
-    Interval = 15000
     OnTimer = Timer1Timer
     Left = 8
+    Top = 8
+  end
+  object PropStorage: TIniPropStorage
+    StoredValues = <>
+    Left = 56
     Top = 8
   end
 end
