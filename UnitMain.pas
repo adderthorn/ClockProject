@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ExtCtrls,
-  IniPropStorage, DateUtils;
+  IniPropStorage, DateUtils, LCLType;
 
 type
 
@@ -22,6 +22,7 @@ type
     StaticTextMonthDayYear: TStaticText;
     Timer1: TTimer;
     procedure FormCreate(Sender: TObject);
+    procedure FormKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure FormResize(Sender: TObject);
     procedure StaticTextTimeDblClick(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
@@ -69,17 +70,33 @@ begin
   Timer1Timer(Sender);
 end;
 
+procedure TFormMain.FormKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+begin
+  if Key = VK_RETURN then
+  begin
+    Self.WindowState:=wsFullScreen;
+    Self.BorderStyle:=bsNone;
+  end
+  else if Key = VK_ESCAPE then
+    Self.Close
+  else
+  begin
+    Self.WindowState:=wsNormal;
+    Self.BorderStyle:=bsSizeable;
+  end;
+end;
+
 procedure TFormMain.FormResize(Sender: TObject);
 var
   NewSize, NewTimeSize: Integer;
 begin
-  NewSize:=Round(Self.Width / kLargeMultiplier);
+  NewSize:=Round(Self.Width / kMedMultiplier);
   StaticTextWeekday.Font.Size:=NewSize;
   StaticTextArea.Font.Size:=Round(NewSize / 2);
   NewTimeSize:=Round(Self.Width / kHugeMultiplier);
   StaticTextTime.Font.Size:=NewTimeSize;
   StaticTextAMPM.Font.Size:=Round(NewTimeSize * 0.333333);
-  StaticTextMonthDayYear.Font.Size:=Round(Self.Width / kMedMultiplier);
+  StaticTextMonthDayYear.Font.Size:=Round(Self.Width / kSmallMultiplier);
 end;
 
 procedure TFormMain.StaticTextTimeDblClick(Sender: TObject);

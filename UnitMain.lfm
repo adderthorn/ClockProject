@@ -1,15 +1,17 @@
 object FormMain: TFormMain
-  Left = 2379
+  Left = 1289
   Height = 494
-  Top = 673
+  Top = 445
   Width = 676
   Caption = 'FormMain'
   ClientHeight = 494
   ClientWidth = 676
   Color = clBlack
   OnCreate = FormCreate
+  OnKeyUp = FormKeyUp
   OnResize = FormResize
-  SessionProperties = 'Color;StaticTextAMPM.Color;StaticTextArea.Color;StaticTextMonthDayYear.Color;StaticTextTime.Color;StaticTextWeekday.Color'
+  Position = poDefault
+  SessionProperties = 'Color;StaticTextAMPM.Color;StaticTextArea.Color;StaticTextMonthDayYear.Color;StaticTextTime.Color;StaticTextWeekday.Color;BorderStyle;WindowState'
   LCLVersion = '3.6.0.0'
   object StaticTextWeekday: TStaticText
     AnchorSideLeft.Control = Owner
