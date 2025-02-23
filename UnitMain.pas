@@ -24,6 +24,7 @@ type
     procedure FormCreate(Sender: TObject);
     procedure FormKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure FormResize(Sender: TObject);
+    procedure StaticTextMonthDayYearDblClick(Sender: TObject);
     procedure StaticTextTimeDblClick(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
   private
@@ -99,9 +100,26 @@ begin
   StaticTextMonthDayYear.Font.Size:=Round(Self.Width / kSmallMultiplier);
 end;
 
-procedure TFormMain.StaticTextTimeDblClick(Sender: TObject);
+procedure TFormMain.StaticTextMonthDayYearDblClick(Sender: TObject);
 begin
-  ShowMessage('Hello');
+  if Self.WindowState = wsFullScreen then
+  begin
+    Self.WindowState:=wsNormal;
+    Self.BorderStyle:=bsSizeable;
+  end else begin
+    Self.WindowState:=wsFullScreen;
+    Self.BorderStyle:=bsNone;
+  end;
+end;
+
+procedure TFormMain.StaticTextTimeDblClick(Sender: TObject);
+var
+  Reply, BoxStyle: Integer;
+begin
+  BoxStyle:=MB_ICONQUESTION + MB_YESNO
+  Reply:=Application.MessageBox('Close Clock?', 'Close?', BoxStype);
+  if Reply = IDYES then
+    Self.Close;
 end;
 
 function TFormMain.GetAreaOfTime(Hour: Integer): String;

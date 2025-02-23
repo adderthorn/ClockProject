@@ -1,7 +1,7 @@
 object FormMain: TFormMain
-  Left = 1289
+  Left = 1936
   Height = 494
-  Top = 445
+  Top = 147
   Width = 676
   Caption = 'FormMain'
   ClientHeight = 494
@@ -26,13 +26,11 @@ object FormMain: TFormMain
     Anchors = [akTop, akLeft, akRight]
     AutoSize = True
     Caption = 'MONDAY'
-    Color = clDefault
     Font.CharSet = ANSI_CHARSET
     Font.Color = clWhite
     Font.Height = -64
     Font.Name = '.SF NS'
     ParentFont = False
-    ParentColor = False
     TabOrder = 0
   end
   object StaticTextArea: TStaticText
@@ -143,14 +141,13 @@ object FormMain: TFormMain
     Anchors = [akLeft, akRight, akBottom]
     AutoSize = True
     Caption = 'MARCH 1, 2025'
-    Color = clDefault
     Font.CharSet = ANSI_CHARSET
     Font.Color = clWhite
     Font.Height = -64
     Font.Name = '.SF NS'
     ParentFont = False
-    ParentColor = False
     TabOrder = 3
+    OnDblClick = StaticTextMonthDayYearDblClick
   end
   object Timer1: TTimer
     OnTimer = Timer1Timer
