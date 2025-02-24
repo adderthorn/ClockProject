@@ -116,8 +116,8 @@ procedure TFormMain.StaticTextTimeDblClick(Sender: TObject);
 var
   Reply, BoxStyle: Integer;
 begin
-  BoxStyle:=MB_ICONQUESTION + MB_YESNO
-  Reply:=Application.MessageBox('Close Clock?', 'Close?', BoxStype);
+  BoxStyle:=MB_ICONQUESTION + MB_YESNO;
+  Reply:=Application.MessageBox('Close Clock?', 'Close?', BoxStyle);
   if Reply = IDYES then
     Self.Close;
 end;
